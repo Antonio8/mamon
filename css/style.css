@@ -48,6 +48,10 @@ body {
   color: #202020;
 }
 
+.nav a:hover {
+  color: #5528ff;
+}
+
 .nav_btn {
   background-color: #5528ff;
   border-radius: 5px;
@@ -216,7 +220,76 @@ body {
   font-size: 24px;
 }
 
-@media (max-width: 768px) {
+.hide-nav {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: #5528ff;
+  border-radius: 5px;
+  cursor: pointer;
+  /* float: right; */
+}
+
+.hide-nav-line {
+  position: absolute;
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  left: 10%;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.hide-nav-line-top {
+  top:8px;
+  transition: 0.5s;
+}
+
+.hide-nav-line-middle {
+  top: 18px;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.hide-nav-line-bottom {
+  top: 28px;
+  transition: 0.5s;
+}
+
+.hide-nav.active .hide-nav-line-top {
+  top: 18px;
+  transform: rotate(-45deg);
+  transition: 0.5s;
+}
+
+.hide-nav.active .hide-nav-line-middle {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.hide-nav.active .hide-nav-line-bottom {
+  top: 18px;
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+
+nav {
+  position: relative;
+}
+
+.list:after {
+  content: '';
+  visibility: hidden;
+  overflow: hidden;
+  display: inline-block;
+  height: 0;
+}
+
+
+@media screen and (max-width: 768px) {
+
   .services {
     display: block;
     text-align: center;
@@ -247,9 +320,26 @@ body {
     margin-right: 0;
   }
 
-  .nav li {
-    display: block;
-    text-align: center;
-    margin-right: 0;
+  .list {
+    position: absolute;
+    right: -500px;
+    width: 200px;
+    transition: 0.5s;
+    display: none;
   }
+
+  .list.show {
+    right: 115px;
+    transition: 0.5s;
+    display: flex;
+  }
+
+  .list li {
+    display: block;
+  }
+
+  .hide-nav {
+    display: block;
+  }
+
 }
