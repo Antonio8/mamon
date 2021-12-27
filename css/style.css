@@ -332,6 +332,7 @@ nav {
     right: 115px;
     transition: 0.5s;
     display: flex;
+    z-index: 1;
   }
 
   .list li {
